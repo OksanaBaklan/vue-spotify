@@ -1,5 +1,5 @@
 <script setup >
-  import { ref, onMounted  } from 'vue'
+  import { ref, onMounted, onBeforeUnmount } from 'vue'
   import { RouterLink, RouterView } from 'vue-router'
 
 import MenuItem from "./components/MenuItem.vue"
@@ -20,8 +20,18 @@ import MenuItem from "./components/MenuItem.vue"
 
   const toggleMenuLogo = () => {
   openMenuLogo.value = !openMenuLogo.value;
-  console.log(openMenuLogo.value)
   };
+
+
+
+const closeMenuOutsideClick = (event) => {
+  const menuContainer = document.querySelector('.sideNav-container');
+
+  if (menuContainer && !menuContainer.contains(event.target)) {
+    openMenuLogo.value = false;
+  }
+};
+
 
 onMounted(() => {
   const isMobileMediaQuery = window.matchMedia('(max-width: 768px)');
@@ -30,8 +40,16 @@ onMounted(() => {
   isMobileMediaQuery.addEventListener('change', (event) => {
     isMobile.value = event.matches;
   });
+
+  if (openMenuLogo.value) {
+    document.addEventListener('click', closeMenuOutsideClick);
+  }
 })
-  
+
+onBeforeUnmount(() => {
+  document.removeEventListener('click', closeMenuOutsideClick);
+});
+
 </script>
 
 <template>
@@ -75,11 +93,11 @@ onMounted(() => {
            <div id="SideNav">
  <div v-if="isMobile">
           <div v-if="openMenuLogo" class="sideNav-container">
-              <RouterLink to="/" >
+              <!-- <RouterLink to="/" > -->
                 <button  @click="toggleMenuLogo" class="logoIsMobile">
                   <img width="125"  src="/images/icons/spotify-logo.png" />
                 </button>
-              </RouterLink>
+              <!-- </RouterLink> -->
               <div class="my-10"></div>
           <ul>
                 <RouterLink to="/">

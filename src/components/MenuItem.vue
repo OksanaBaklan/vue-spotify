@@ -71,9 +71,9 @@ const isHover = () => {
   cursor: pointer;
 }
 .list-text{
-  font-weight: 600; /* Equivalent to font-semibold in Tailwind */
+  font-weight: 600;
   font-size: 14px;
-  margin-left: 0.25rem; /* Equivalent to ml-4 in Tailwind */
+  margin-left: 0.25rem;
   margin-top: 0.125rem;
 }
 

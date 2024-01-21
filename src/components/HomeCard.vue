@@ -23,6 +23,7 @@ const { image, title, subTitle } = toRefs(props)
 <style>
 .card-container {
   background-color: #111111;
+  width: fit-content;
   padding: 1rem;
   border-radius: 0.375rem; 
   margin: 0.5rem; 

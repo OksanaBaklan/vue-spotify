@@ -196,27 +196,24 @@ onMounted(() => {
 }
 
 .menuLogo-container {
-  /* Add styles that should always be applied */
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-/* Conditional styles when openMenuLogo is true */
 .menuLogo-container.active {
   display: block;
   width: 150px;
-  background-color: #282828; /* Show the list when openMenuLogo is true */
+  background-color: #282828; 
 }
 
 .menuLogo-container li {
-  /* Add styles for list items inside the .menuLogo-container */
-  padding: 8px 0; /* Adjust padding as needed */
-  border-bottom: 1px solid #ccc; /* Example border between list items */
+  padding: 8px 0; 
+  border-bottom: 1px solid #ccc; 
 }
 
 .menuLogo-container li:last-child {
-  border-bottom: none; /* Remove border on the last list item */
+  border-bottom: none;
 }
 @media screen and (min-width: 767px) {
   .logo{
@@ -360,17 +357,16 @@ onMounted(() => {
 .router-link-menu-item {
   display: block;
   text-decoration: none;
-  color: inherit; /* Inherits color from parent */
-  transition: color 0.3s ease-in-out; /* Optional: Add a smooth transition effect */
+  color: inherit;
+  transition: color 0.3s ease-in-out; 
 }
 
-/* CSS class for the common styles of MenuItem */
 .menu-item {
   display: flex;
   align-items: center;
-  padding: 10px; /* Adjust padding as needed */
+  padding: 10px; 
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out; /* Optional: Add a smooth transition effect */
+  transition: background-color 0.3s ease-in-out; 
 }
 </style>
 
